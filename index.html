@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quickshop</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon3.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/home.css">
+
+</head>
+<body>
+    
+    <!-- header section starts -->
+
+    <header>
+        <div class="header-1">
+
+            <a class="logo" href="#"><i class="fas fa-shopping-basket"></i>QuickShop</a>
+            
+            <form action="" class="search-box-container">
+                <input type="search" id="search-box" placeholder="Search here...">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+        </div>
+
+        <div class="header-2">
+            
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="#home">Home</a>
+                <a href="#category1">Category</a>
+                <a href="#product">Product</a>
+                <a href="#deal">Deal</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="icons">
+                <a class="fas fa-shopping-cart" onclick="toggleDiv()"><span id="cartAmount">0</span></a>
+                
+                <a href="#admin" class="fas fa-user-circle" onclick="totalP1()"></a>
+            </div>
+        </div>
+
+    </header>
+
+     <!-- header section ends -->
+
+
+
+    <!-- home section starts -->
+
+    <section class="home" id="home">
+
+        <div class="image">
+            <img src="./images/basket-full-vegetables.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <span>your one-stop grocery destination</span>
+            <h3>discover a world of freshness, variety and savings</h3>
+            <a href="#" class="hButton">shop now</a>
+        </div>
+    </section>
+
+
+    <!-- home section ends -->
+
+
+    <!-- banner section starts -->
+
+
+    <section class="banner-container">
+
+        <div class="banner">
+            <img src="./images/vegetables-arrangement-with-copy-space.jpg" alt="">
+            <div class="content">
+                <h3>special offer</h3>
+                <p>upto 30% off</p>
+                <a href="#" class="hButton">shop now</a>
+            </div>
+        </div>
+
+        <div class="banner">
+            <img src="./images/high-angle-asian-food-ingredients-with-copy-space.jpg" alt="">
+            <div class="content">
+                <h3>limited offer</h3>
+                <p>upto 45% off</p>
+                <a href="#" class="hButton">shop now</a>
+            </div>
+        </div>
+    </section>
+
+     <!-- banner section ends -->
+
+
+
+
+    <!-- Category section starts -->
+
+
+    <div id="category1">
+
+        <div class="category-heading">
+            <h2>categories</h2>
+            <span>all >></span>
+        </div>
+
+        <div class="category-container">
+            <a href="#" class="category-box">
+                <img src="./images/fish2.png" alt="">
+                <span>fish & meat</span>
+            </a>
+
+            <a href="#" class="category-box">
+                <img src="./images/fruit.png" alt="">
+                <span>fruits</span>
+            </a>
+
+            <a href="#" class="category-box">
+                <img src="./images/vegetable.png" alt="">
+                <span>vegetables</span>
+            </a>
+
+            <a href="#" class="category-box">
+                <img src="./images/drinks.png" alt="">
+                <span>beverages</span>
+            </a>
+
+            <a href="#" class="category-box">
+                <img src="./images/snack3.png" alt="">
+                <span>snacks</span>
+            </a>
+
+            <a href="#" class="category-box">
+                <img src="./images/stationary2.png" alt="">
+                <span>stationary</span>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Category section ends -->
+
+
+
+
+    <!-- admin section starts -->
+
+    <div class="admin" id="admin">
+        <h2>Admin</h2>
+
+        <div class="admin-functions">
+
+            <div class="admin-box1 pt-3 px-4">
+                <form id="form" action="/" >
+                    <div>                
+                        <label>Item Code</label>
+                        <input type="number" id="idNumber" name="id" placeholder="Enter Item Code" required>
+                        <div class="error"></div>
+                    </div>
+                    <div>      
+                        <label>Category</label>
+                        <select id="category" name="category">
+                          <option disable Selected hidden>Select Your Category</option>
+                          <option id ="fruits" >Fruits </option>
+                          <option id ="veg" >Vegetables</option>
+                          <option id="meat" >fish & meat</option>
+                          <option id="beverages" >Beverages</option>
+                          <option id="snacks">Snacks</option>
+                          <option id="stationary">Stationary</option>
+                        </select>
+                    </div>
+                    <div> 
+                        <label>Name</label>
+                        <input type="text" id="itemName" name="itemName" placeholder="Enter Item Name" required>
+                        <div class="error"></div>
+                    </div>
+                    <div>
+                      <label>Quantity</label>
+                      <input type="number" id="quantity" name="quantity" placeholder="Enter Quantity" required>
+                      <div class="error"></div>
+                  </div> 
+                    <div>
+                        <label>Rate</label>
+                        <input type="number" id="rate" name="rate" placeholder="Enter Rate" required>
+                        <div class="error"></div>
+                    </div> 
+                    <div>
+                      <label>Browse Picture</label>
+                      <input type="file" id="file" name="file" required>
+                    </div>
+
+                    <button type="submit" class="btn" onclick="addItem(event)" >Add Item</button>
+                </form>
+            </div>
+
+
+            <div class=" box2-container mb-2 ">
+                <div class="product-details ">
+                  <h4>Product Details</h4> 
+                  
+                </div>
+
+                <div  id="card">
+  
+                </div>
+
+                  <div id="card-none">
+                      <div  class="card-none">
+                        <h5>You Haven't Added Any Products!</h5>  
+                        <img width="180" height="180" src="./images/man.png" >  
+                      </div>  
+                  </div>
+              </div>
+
+
+
+              <div class=" table-container">
+                <div class="box3 ">
+
+                  <button class="btn" id="button" onclick="showItem()">show</button>
+                  <h4 >Table</h4> 
+
+                </div>
+                 
+                  <table class="table" id="myTable" >
+                    <thead >
+                      <tr class="sticky-top tableHead ">
+                        <th scope="col">Item Code</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Rate</th>
+                        <th scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    
+                        
+                    <!-- <tbody id="myTable">
+    
+                    </tbody> -->
+                  </table>
+                  <div class="table-error" id="tableError">
+                    <h5 >Add Items!</h5>
+                    <img src="./images/corrupted-file.png" alt="" >
+                  </div>  
+              </div>
+        </div>
+
+        <button type="button" class="aButton" onclick="buyItem()">Update Products</button>
+    </div>
+  
+    <!-- admin section ends -->
+
+
+
+
+
+      <!-- cart section starts -->
+      
+      
+      <div class="cartTab" id="cart">
+        <button class="closeButton" onclick="closeCart()"><i class="fa-solid fa-xmark" style="color: #ffffff;"></i></button>
+        <h1>my cart</h1>
+
+        <div class="cartContainer" id="cartContainer">
+
+
+
+        </div>
+ 
+        <div class="cartTotal">
+            <h3>Total</h3>
+            <h3 id="cartTotal"></h3>
+        </div>
+      </div>
+     
+
+      <!-- cart section ends -->
+
+
+
+
+      
+    <!-- product section starts -->
+
+    <section class="products" id="product">
+
+        <h2>popular products</h2>
+        
+        <div class="product-container" id="productContainer">
+
+            <div class="product-box">
+                <img src="./images/carrot-png-25859.png" alt="">
+                <strong>carrot</strong>
+                <span class="quantity">1 kg</span>
+                <span class="price">₹50</span>
+
+                <div class="buttons">
+                    <i  class="fa-solid fa-minus minus"></i>
+                    <div class="quant">1</div>
+                    <i   class="fa-solid fa-plus plus"></i>
+                </div>
+
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add to cart
+                </button>
+            </div>
+
+            <div class="product-box">
+                <img src="./images/grape-png-24204.png" alt="">
+                <strong>grapes</strong>
+                <span class="quantity">1 kg</span>
+                <span class="price">₹100</span>
+
+                <div class="buttons">
+                    <i class="fa-solid fa-minus minus"></i>
+                    <div class="quant">1</div>
+                    <i class="fa-solid fa-plus plus"></i>
+                </div>
+                
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add to cart
+                </button>
+            </div>
+
+            <div class="product-box">
+                <img src="./images/tomato-png-16739.png" alt="">
+                <strong>tomato</strong>
+                <span class="quantity">1 kg</span>
+                <span class="price">₹40</span>
+
+                <div class="buttons">
+                    <i class="fa-solid fa-minus minus"></i>
+                    <div class="quant">1</div>
+                    <i class="fa-solid fa-plus plus"></i>
+                </div>
+
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add to cart
+                </button>
+            </div>
+
+            <div class="product-box">
+                <img src="./images/coca-cola-png-41657.png" alt="">
+                <strong>coca cola</strong>
+                <span class="quantity">2 l</span>
+                <span class="price">₹90</span>
+
+                <div class="buttons">
+                    <i class="fa-solid fa-minus minus"></i>
+                    <div class="quant">1</div>
+                    <i class="fa-solid fa-plus plus"></i>
+                </div>
+
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add to cart
+                </button>
+            </div>
+
+            <div class="product-box">
+                <img src="./images/lays.png" alt="">
+                <strong>lays</strong>
+                <span class="quantity">1 N</span>
+                <span class="price">₹20</span>
+
+                <div class="buttons">
+                    <i class="fa-solid fa-minus minus"></i>
+                    <div class="quant">1</div>
+                    <i class="fa-solid fa-plus plus"></i>
+                </div>
+
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add to cart
+                </button>
+            </div>
+
+            <div class="product-box">
+                <img src="./images/—Pngtree—red fresh gala apple isolated_5230964.png" alt="">
+                <strong>apple</strong>
+                <span class="quantity">1 kg</span>
+                <span class="price">₹100</span>
+
+                <div class="buttons">
+                    <i class="fa-solid fa-minus minus"></i>
+                    <div class="quant">1</div>
+                    <i class="fa-solid fa-plus plus"></i>
+                </div>
+
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add to cart
+                </button>
+            </div>
+
+            <div class="product-box">
+                <img src="./images/pngfind.com-juice-png-752860.png" alt="">
+                <strong>tropicana</strong>
+                <span class="quantity">1 l</span>
+                <span class="price">₹250</span>
+
+                <div class="buttons">
+                    <i class="fa-solid fa-minus minus"></i>
+                    <div class="quant">1</div>
+                    <i class="fa-solid fa-plus plus"></i>
+                </div>
+
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add to cart
+                </button>
+            </div>
+
+            <div class="product-box">
+                <img src="./images/orange-juicy-ripe-circle-citrus.jpg" alt="">
+                <strong>orrange</strong>
+                <span class="quantity">1 kg</span>
+                <span class="price">₹80</span>
+
+                <div class="buttons">
+                    <i class="fa-solid fa-minus minus"></i>
+                    <div class="quant">1</div>
+                    <i class="fa-solid fa-plus plus"></i>
+                </div>
+
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add to cart
+                </button>
+            </div>
+
+        </div>    
+
+        <div id="prodPlace">
+
+        </div>
+
+        
+    </section>
+
+     <!-- product section ends -->
+
+
+
+     <!-- client section starts -->
+     
+    <section id="clients">
+
+        <div class="client-heading">
+            <h3>what our client's say</h3>
+        </div>
+
+        <div class="client-box-container">
+
+            <div class="client-box">
+                <div class="client-profile">
+
+                    <img src="./images/front-view-smiley-woman-seaside.jpg" alt="">
+                    <div class="profile-text">
+                        <strong>Elara Frost</strong>
+                        <span>CEO</span>
+                    </div>  
+                </div>
+
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+
+                <p>I've had an exceptional experience with Quickshop. The website is intuitive, making it easy to find what I need. Their range of organic and specialty products is impressive, catering to different dietary needs.
+                    The checkout process is quick, and the deliveries are consistently on time. I've had no issues with the quality of products received; everything is fresh and well-packaged. Their customer service is commendable too, always responsive and helpful. Quickshop.com has earned my trust for its reliability and quality service.</p>
+            </div>
+
+            <div class="client-box">
+                <div class="client-profile">
+
+                    <img src="./images/young-bearded-man-with-striped-shirt (1).jpg" alt="">
+                    <div class="profile-text">
+                        <strong>Jaxon Mercer</strong>
+                        <span>Software Engineer</span>
+                    </div>  
+                </div>
+
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+
+                <p>I recently had the pleasure of shopping on Quickshop.com, and I must say, it was a fantastic experience from start to finish. The website's user-friendly interface made finding and ordering products incredibly easy.
+                    The variety of items available was impressive. From fresh produce to pantry staples and specialty foods, they seemed to have everything I needed. The search function worked flawlessly, helping me quickly locate specific items, and the categorization made browsing a breeze.   
+                    The checkout process was smooth and efficient.</p>
+            </div>
+
+            <div class="client-box">
+                <div class="client-profile">
+
+                    <img src="./images/close-up-portrait-young-bearded-man-white-shirt-jacket-posing-camera-with-broad-smile-isolated-gray.jpg" alt="">
+                    <div class="profile-text">
+                        <strong>Tobias Rainey</strong>
+                        <span>Project Manager</span>
+                    </div>  
+                </div>
+
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+
+                <p>I've been using Quickshop.com for my grocery needs, and it's become my go-to online supermarket. The website's user-friendly interface makes browsing and ordering a breeze. The extensive range of products caters to all my household requirements, from fresh produce to household essentials.
+                    The checkout process is straightforward, and I appreciate the various payment options available. Deliveries are consistently on time, and the packaging ensures the items arrive in excellent condition. What truly sets Quickshop apart is their exceptional customer service.</p>
+            </div>
+            
+        </div>
+    </section>
+
+
+     <!-- client section ends -->
+
+
+     <!-- news section starts -->
+
+    <section class="newsletter">
+        <h3>subscribe us for latest updates</h3>
+
+        <form action="">
+            <input class="box" type="email" placeholder="Enter Your Email">
+            <input type="submit" value="subscribe" class="btn">
+        </form>
+    </section>
+
+
+     <!-- news section ends -->
+
+
+
+     <!-- footer section starts -->
+
+     <footer>
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <a href="#">quickshop</a>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram "></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <strong>categories</strong>
+                <ul>
+                    <li><a href="#">fruits</a></li>
+                    <li><a href="#">vegetables</a></li>
+                    <li><a href="#">fish & meat</a></li>
+                    <li><a href="#">beverages</a></li>
+                    <li><a href="#">stationary</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <strong>help</strong>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">contact us</a></li>
+                    <li><a href="#">wallet FAQs</a></li>
+                    <li><a href="#">wallet t&c</a></li>
+                    <li><a href="#">vendor connect</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <strong>Contact us</strong>
+                <ul>
+                    <li ><a href="#"><i class="fa-solid fa-location-dot"></i>  C4, State Emporium Building <br> Baba Kharak Singh Marg<br> Connaught Place, Mumbai</a></li>
+                    <li style="margin-top: 5px;" ><a href="#"><i class="fa-solid fa-phone"></i>  +91 976XX-XX768</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="copycont">© 2023 Quickshop . All rights reserved</p>
+     </footer>
+
+
+     <!-- footer section ends -->
+
+
+
+
+
+
+
+    <script src="./js/home.js"></script>
+</body>
+</html>
